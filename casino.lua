@@ -1,4 +1,3 @@
-
 -- Code credit WhoAboutYT
 
 -- Globals (globals.get_int) credits to ThizIsSam
