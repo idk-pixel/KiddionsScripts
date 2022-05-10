@@ -16,7 +16,7 @@ WriteText('Diamond = 3')
 WriteText('Files = 4')
 WriteText('Panther = 5')
 
-demo_menu:add_int_range("Primary Target", 1, 0, 5, function()
+cayo_menu:add_int_range("Primary Target", 1, 0, 5, function()
     return 1
 end, function(H4CNF_TARGET)
     PlayerIndex = globals.get_int(1574915)
