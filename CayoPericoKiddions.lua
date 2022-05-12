@@ -1,5 +1,5 @@
 local cayo_menu = menu.add_submenu('Cayo Heist Editor')
-
+print('Welcome to WhoAboutYTs Cayo Menu')
 local function WriteText(text)
     cayo_menu:add_action(text, function()
     end) -- Creates A Fake Action to provide a text.
@@ -47,7 +47,7 @@ end, function(H4CNF_TARGET)
     stats.set_int(mpx .. "H4CNF_TARGET", H4CNF_TARGET)
 end)
 
-cayo_menu:add_int_range("Set Up Max Cayo - # of PlayeBrs:", 1, 1, 4, function()
+cayo_menu:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 4, function()
     return 1
 end, function(NumPlayers)
     if NumPlayers == 1 then
