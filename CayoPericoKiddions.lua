@@ -16,6 +16,7 @@ WriteText('Diamond = 3')
 WriteText('Files = 4')
 WriteText('Panther = 5')
 
+
 cayo_menu:add_int_range("Primary Target", 1, 0, 5, function()
     return 1
 end, function(H4CNF_TARGET)
@@ -46,7 +47,7 @@ end, function(H4CNF_TARGET)
     stats.set_int(mpx .. "H4CNF_TARGET", H4CNF_TARGET)
 end)
 
-cayo_menu:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 4, function()
+cayo_menu:add_int_range("Set Up Max Cayo - # of PlayeBrs:", 1, 1, 4, function()
     return 1
 end, function(NumPlayers)
     if NumPlayers == 1 then
@@ -67,7 +68,7 @@ end, function(NumPlayers)
         stats.set_int("MP0_H4CNF_GRAPPEL", 5156)
         stats.set_int("MP0_H4CNF_TROJAN", 1)
         stats.set_int("MP0_H4CNF_UNIFORM", 5256)
-        stats.set_int("MP0_H4CNF_BS_GEN", -1)
+        stats.set_int("MP0_H4CNF_BS_GEN", 131071)
         stats.set_int("MP0_H4CNF_WEAPONS", 3) -- 1: Aggressor [Assault SG + Machine Pistol + Machete + Grenade] 2: Conspirator [Military Rifle + AP + Knuckles + Stickies] 3: Crackshot [Sniper + AP + Knife + Molotov] 4: Saboteur [SMG Mk2 + SNS Pistol + Knife + Pipe Bomb] 5: Marksman [Assault Rifle MKII + Pistol MKII + Machete + Pipe Bomb]
         stats.set_int("MP0_H4_MISSIONS", -1)
         stats.set_int("MP0_H4LOOT_CASH_I", 0)
@@ -76,8 +77,8 @@ end, function(NumPlayers)
         stats.set_int("MP0_H4LOOT_CASH_C_SCOPED", 0)
         stats.set_int("MP0_H4LOOT_COKE_I", 0)
         stats.set_int("MP0_H4LOOT_COKE_I_SCOPED", 0)
-        stats.set_int("MP0_H4LOOT_COKE_C", 16777215)
-        stats.set_int("MP0_H4LOOT_COKE_C_SCOPED", 16777215)
+        stats.set_int("MP0_H4LOOT_COKE_C", 0)
+        stats.set_int("MP0_H4LOOT_COKE_C_SCOPED", 0)
         stats.set_int("MP0_H4LOOT_WEED_I", 0)
         stats.set_int("MP0_H4LOOT_WEED_I_SCOPED", 0)
         stats.set_int("MP0_H4LOOT_WEED_C", 0)
@@ -93,7 +94,7 @@ end, function(NumPlayers)
         stats.set_int("MP1_H4CNF_TROJAN", 1)
         stats.set_int("MP1_H4CNF_TARGET", 3) -- Pink Diamond = 3, Panther = 5;
         stats.set_int("MP1_H4CNF_UNIFORM", 5256)
-        stats.set_int("MP1_H4CNF_BS_GEN", -1)
+        stats.set_int("MP1_H4CNF_BS_GEN", 131071)
         stats.set_int("MP1_H4CNF_WEAPONS", 3) -- 1: Aggressor [Assault SG + Machine Pistol + Machete + Grenade] 2: Conspirator [Military Rifle + AP + Knuckles + Stickies] 3: Crackshot [Sniper + AP + Knife + Molotov] 4: Saboteur [SMG Mk2 + SNS Pistol + Knife + Pipe Bomb] 5: Marksman [Assault Rifle MKII + Pistol MKII + Machete + Pipe Bomb]
         stats.set_int("MP1_H4_MISSIONS", -1)
         stats.set_int("MP1_H4LOOT_CASH_I", 0)
