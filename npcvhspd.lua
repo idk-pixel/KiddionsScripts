@@ -1,9 +1,15 @@
--- idea by https://www.reddit.com/user/Holwenator/
--- coded by whoaboutyt
+local function SetMaxSpeed(vehicle, SpeedInt)
+    vehicle:set_max_speed(SpeedInt)
+    print('Setting max speed of '..SpeedInt..' for Vehicle ID ' .. vehicle)
+end
+
+-- Overrides
 
 local TOWN_SPEED = 0.15
 local CONNECTING_ROADS_SPEED = 0.20 
 local HIGHWAY_SPEED = 0.25
+
+-- Menu
 
 local SBM = menu.add_submenu('NPC Spoof')
 
@@ -18,7 +24,9 @@ SBM:add_action('Town Speed Set', function ()
     
     local Vch = PlayerPed:get_current_vehicle()
 
-    Vch:set_acceleration(TOWN_SPEED)
+    local current_max_speed = Vch:get_max_speed()
+
+    SetMaxSpeed(Vch, TOWN_SPEED)
 end)
 SBM:add_action('Connecting Speed Set', function ()
     local PlayerPed = localplayer
@@ -31,7 +39,7 @@ SBM:add_action('Connecting Speed Set', function ()
     
     local Vch = PlayerPed:get_current_vehicle()
 
-    Vch:set_acceleration(CONNECTING_ROADS_SPEED)
+    SetMaxSpeed(Vch, CONNECTING_ROADS_SPEED)
 end)
 SBM:add_action('Highway Speed Set', function ()
     local PlayerPed = localplayer
@@ -44,5 +52,5 @@ SBM:add_action('Highway Speed Set', function ()
     
     local Vch = PlayerPed:get_current_vehicle()
 
-    Vch:set_acceleration(HIGHWAY_SPEED)
+    SetMaxSpeed(Vch, HIGHWAY_SPEED)
 end)
