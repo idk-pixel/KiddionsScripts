@@ -3,6 +3,8 @@ local function Text(submenu, text)
     print('APPENDING TEXT ' ..text)
 end
 
+print ('Welcome to WhoAboutYTs Heist Menu')
+
 -- PI Global
 
 local PIGlobal = 'MPPLY_LAST_MP_CHAR'
@@ -17,10 +19,10 @@ local AgencyMax = 2000000;
 
 -- Cuts Global (Casino)
 
-local CasinoGlobalP1 = 19690 + 60 + 5;
-local CasinoGlobalP2 = 19690 + 60 + 6;
-local CasinoGlobalP3 = 19690 + 60 + 7;
-local CasinoGlobalP4 = 19690 + 60 + 8;
+local CasinoGlobalP1 = 1969065;
+local CasinoGlobalP2 = 1969066;
+local CasinoGlobalP3 = 1969067;
+local CasinoGlobalP4 = 1969068;
 
 -- Submenu
 
@@ -40,15 +42,16 @@ Text(Casino_Editor, 'Gold Equals 2')
 Text(Casino_Editor, 'Art Equals 3')
 Text(Casino_Editor, 'Diamonds Equals 4')
 
+PlayerIndex = stats.get_int(PIGlobal)
+if PlayerIndex == 0 then
+	mpx = "MP0_"
+else
+	mpx = "MP1_"
+end
+
 Casino_Editor:add_int_range("Select Target From List", 1, 1, 4, function()
     return stats.get_int(mpx .. "H3OPT_TARGET")
 end, function(Target)
-    PlayerIndex = globals.get_int(PIGlobal)
-    if PlayerIndex == 0 then
-        mpx = "MP0_"
-    else
-        mpx = "MP1_"
-    end
     if Target == 1 then
         H3t = 0
     elseif Target == 2 then
@@ -315,8 +318,3 @@ return globals.get_int(AgencyGlobalCash)
 end, function (value) 
 return globals.set_int(AgencyGlobalCash, value)
 end); Agency_Editor:add_submenu('Credits'):add_action('WhoAboutYT',function()end)
-
-
--- Every Menus Credit to WhoAboutYT
-
--- Everything was made by WhoAboutYT
