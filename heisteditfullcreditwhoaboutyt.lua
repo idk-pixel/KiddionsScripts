@@ -246,12 +246,6 @@ Text(Cayo_Editor, 'Panther = 5')
 Cayo_Editor:add_int_range("Primary Target", 1, 0, 5, function()
     return 1
 end, function(H4CNF_TARGET)
-    PlayerIndex = globals.get_int(1574915)
-    if PlayerIndex == 0 then
-        mpx = "MP0_"
-    else
-        mpx = "MP1_"
-    end
     if H4CNF_TARGET == 0 then
         Value = 0
     end
@@ -272,24 +266,48 @@ end, function(H4CNF_TARGET)
     end
     stats.set_int(mpx .. "H4CNF_TARGET", H4CNF_TARGET)
 end)
-Cayo_Editor:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 4, function()
+Cayo_Editor:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 3, function()
     return 1
 end, function(NumPlayers)
     if NumPlayers == 1 then
         LootValue = 538484
+		stats.set_int(mpx.."H4LOOT_WEED_C", 0)
+        stats.set_int(mpx.."H4LOOT_WEED_C_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_GOLD_C", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_C_SCOPED", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_V", LootValue)
     end
     if NumPlayers == 2 then
         LootValue = 1235151 -- Use 50%/50% split
+		stats.set_int(mpx.."H4LOOT_WEED_C", 0)
+        stats.set_int(mpx.."H4LOOT_WEED_C_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_GOLD_C", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_C_SCOPED", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_V", LootValue)
     end
     if NumPlayers == 3 then
         LootValue = 1375382 -- Use 35%/3 0)
-        stats.set_int("MP1_H4LOOT_WEED_C", 0)
-        stats.set_int("MP1_H4LOOT_WEED_C_SCOPED", 0)
-        stats.set_int("MP1_H4LOOT_PAINT", 0)
-        stats.set_int("MP1_H4LOOT_PAINT_SCOPED", 0)
-        stats.set_int("MP1_H4LOOT_GOLD_C", 255)
-        stats.set_int("MP1_H4LOOT_GOLD_C_SCOPED", 255)
-        stats.set_int("MP1_H4LOOT_GOLD_V", LootValue)
+        stats.set_int(mpx.."H4LOOT_WEED_C", 0)
+        stats.set_int(mpx.."H4LOOT_WEED_C_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_GOLD_C", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_C_SCOPED", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_V", LootValue)
+    end
+	if NumPlayers == 4 then
+        LootValue = 1583484 -- Use 25%/25%/25%/25% split
+		stats.set_int(mpx.."H4LOOT_WEED_C", 0)
+        stats.set_int(mpx.."H4LOOT_WEED_C_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT", 0)
+        stats.set_int(mpx.."H4LOOT_PAINT_SCOPED", 0)
+        stats.set_int(mpx.."H4LOOT_GOLD_C", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_C_SCOPED", 255)
+        stats.set_int(mpx.."H4LOOT_GOLD_V", LootValue)
     end
 end)
 Cayo_Editor:add_submenu('Credits'):add_action('WhoAboutYT',function()end)
@@ -317,4 +335,5 @@ Agency_Editor:add_int_range('Dre Finale Payout', AgencyMin, AgencyMin, AgencyMax
 return globals.get_int(AgencyGlobalCash)
 end, function (value) 
 return globals.set_int(AgencyGlobalCash, value)
-end); Agency_Editor:add_submenu('Credits'):add_action('WhoAboutYT',function()end)
+end)
+Agency_Editor:add_submenu('Credits'):add_action('WhoAboutYT',function()end)
