@@ -11,18 +11,18 @@ local PIGlobal = 'MPPLY_LAST_MP_CHAR'
 
 -- Agency 
 
-local AgencyGlobalCash = 293534;
-local AgencyGlobalBS = 4092;
-local AgencyGlobalStrand = -1;
-local AgencyMin = 1000000;
-local AgencyMax = 2000000;
+local AgencyGlobalCash = 293534
+local AgencyGlobalBS = 4092
+local AgencyGlobalStrand = -1
+local AgencyMin = 1000000
+local AgencyMax = 2000000
 
 -- Cuts Global (Casino)
 
-local CasinoGlobalP1 = 1969065;
-local CasinoGlobalP2 = 1969066;
-local CasinoGlobalP3 = 1969067;
-local CasinoGlobalP4 = 1969068;
+local CasinoGlobalP1 = 1969065
+local CasinoGlobalP2 = 1969066
+local CasinoGlobalP3 = 1969067
+local CasinoGlobalP4 = 1969068
 
 -- Submenu
 
@@ -266,7 +266,7 @@ end, function(H4CNF_TARGET)
     end
     stats.set_int(mpx .. "H4CNF_TARGET", H4CNF_TARGET)
 end)
-Cayo_Editor:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 3, function()
+Cayo_Editor:add_int_range("Set Up Max Cayo - # of Players:", 1, 1, 4, function()
     return 1
 end, function(NumPlayers)
     if NumPlayers == 1 then
