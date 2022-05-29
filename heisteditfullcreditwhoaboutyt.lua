@@ -10,6 +10,15 @@ print('Welcome to WhoAboutYTs Heist Menu')
 
 local PIGlobal = 'MPPLY_LAST_MP_CHAR'
 
+function Get_PI()
+    local pin = stats.get_int(PIGlobal)
+    if pin == 0 then
+        return 'MP0_'
+    else
+        return 'MP1_'
+    end
+end
+
 -- Agency 
 
 local AgencyGlobalCash = 293534
@@ -72,7 +81,7 @@ Casino_Editor:add_int_range("Random Approach - Normal/Hard", 1, 1, 2, function()
 end, function(H3lvl)
     LstAp = stats.get_int(mpx .. "H3_LAST_APPROACH")
     HrdAp = stats.get_int(mpx .. "H3_HARD_APPROACH")
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -101,7 +110,7 @@ Text(Casino_Editor, "ONLY TAKE IF ON EASY APPR!")
 Casino_Editor:add_int_range("EasyApproach - Snk/BgCon/Aggr", 1, 1, 3, function()
     return 1
 end, function(Approach)
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -130,7 +139,7 @@ Text(Casino_Editor, 'Only Take on HardAppr')
 Casino_Editor:add_int_range("HardApproach - Snk/BgCon/Aggr", 1, 1, 3, function()
     return stats.get_int(mpx .. "H3_HARD_APPROACH")
 end, function(Approach)
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -152,7 +161,7 @@ end, function(Approach)
 end)
 
 Casino_Editor:add_action("             ---[[Complete Board1]]---", function()
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -166,7 +175,7 @@ Text(Casino_Editor, 'Set Hackers')
 Casino_Editor:add_int_range("Hacker - Rickie 3%/Avi 10%/Paige 9%", 1, 1, 3, function()
     return stats.get_int(mpx .. "H3OPT_CREWHACKER")
 end, function(Hkr)
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -188,7 +197,7 @@ Text(Casino_Editor, "Mask - Geom/Huntr/OniH/Emj/Skll/Fruit/")
 Casino_Editor:add_int_range("Grlla/Clwn/Anml9/Riot/OniF/Hockey", 1, 1, 12, function()
     return stats.get_int(mpx .. "H3OPT_MASKS")
 end, function(H3Msk)
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0_"
     else
@@ -201,7 +210,7 @@ end)
 Text(Casino_Editor, 'Complete Board2')
 
 Casino_Editor:add_action("       ---[[Complete Board2 - Finale]]---", function()
-    PlayerIndex = globals.get_int(PIGlobal)
+    PlayerIndex = stats.get_int(PIGlobal)
     if PlayerIndex == 0 then
         mpx = "MP0"
     else
@@ -369,14 +378,8 @@ end)
 Text(Agency_Editor, 'Welcome!')
 
 local function Agency_Setup_Mission_Prep_comp()
-    if PlayerIndex == 0 then
-        local mp_fix = "MP0_"
-    else
-        local mp_fix = "MP1_"
-    end
-
-    stats.set_int(mp_fix .. 'FIXER_STORY_BS', AgencyGlobalBS)
-    stats.set_int(mp_fix .. 'FIXER_STORY_STRAND', AgencyGlobalStrand)
+    stats.set_int(Get_PI() .. 'FIXER_STORY_BS', AgencyGlobalBS)
+    stats.set_int(Get_PI() .. 'FIXER_STORY_STRAND', AgencyGlobalStrand)
 end
 
 Text(Agency_Editor, '<----- < DrDre > ------>')
